@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Condicionales y Bucles en MySQL</title>
+</head>
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1e1e1e; margin: 0; padding: 0; color: #f1f1f1;">
+
+    <!-- Cabecera -->
+    <header style="background-color: #222222; padding: 40px 20px; text-align: center; color: #ffffff; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">
+        <h1 style="font-size: 2.5rem;">Blog de Condicionales y Bucles en MySQL</h1>
+        <nav>
+            <ul style="list-style-type: none; padding: 0; margin: 20px 0;">
+                <li style="display: inline; margin-right: 30px;">
+                    <a href="#introduccion" style="color: #f1f1f1; text-decoration: none; font-size: 1.1rem; font-weight: bold;">Introducción</a>
+                </li>
+                <li style="display: inline; margin-right: 30px;">
+                    <a href="#ejemplos" style="color: #f1f1f1; text-decoration: none; font-size: 1.1rem; font-weight: bold;">Ejemplos</a>
+                </li>
+                <li style="display: inline;">
+                 
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Introducción -->
+    <section id="introduccion" style="padding: 40px 20px; text-align: center;">
+        <h2 style="font-size: 2rem; color: #ff6f61;">Introducción</h2>
+        <p style="font-size: 1.2rem; line-height: 1.6; max-width: 800px; margin: 20px auto;">En este blog aprenderás sobre los condicionales y bucles más comunes que se usan en MySQL. Este sitio contiene ejemplos claros, explicaciones fáciles de entender y recursos adicionales para mejorar tus habilidades de programación en SQL. Es ideal para programadores que buscan aprender y aplicar estos conceptos en proyectos reales.</p>
+    </section>
+
+    <!-- Ejemplos -->
+    <section id="ejemplos" style="padding: 60px 20px; background-color: #333333; border-top: 2px solid #ff6f61;">
+        <h2 style="font-size: 2rem; text-align: center; color: #ff6f61;">Ejemplos de Condicionales y Bucles en MySQL</h2>
+
+        <!-- IF THEN ELSE -->
+        <article style="background-color: #444444; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+            <h3 style="font-size: 1.6rem; color: #ffffff;">Condicional IF THEN ELSE</h3>
+            <p style="font-size: 1.1rem; color: #d1d1d1;">El condicional <code>IF THEN ELSE</code> en MySQL se utiliza para ejecutar una acción cuando se cumple una condición específica, y una acción diferente si no se cumple.</p>
+
+            <!-- Ejemplo 1 -->
+            <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 1: Comprobación de saldo en una cuenta
+DELIMITER $$
+
+CREATE PROCEDURE VerificarSaldo()
+BEGIN
+    DECLARE saldo INT DEFAULT 100;
+    
+    IF saldo > 0 THEN
+        SELECT 'El saldo es suficiente para realizar la compra';
+    ELSE
+        SELECT 'No hay suficiente saldo';
+    END IF;
+END $$
+
+DELIMITER ;
+            </pre>
+            <p style="color: #d1d1d1;">Este ejemplo verifica si el saldo de una cuenta es mayor a 0. Si es así, permite realizar una compra, de lo contrario, muestra un mensaje indicando que no hay suficiente saldo.</p>
+            
+            <!-- Imagen del Ejemplo 1 -->
+            <div style="text-align: center;">
+               
+            </div>
+
+            <!-- Ejemplo 2 -->
+            <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 2: Verificar edad para acceder a un sistema
+DELIMITER $$
+
+CREATE PROCEDURE VerificarEdad(edad INT)
+BEGIN
+    IF edad >= 18 THEN
+        SELECT 'Acceso permitido';
+    ELSE
+        SELECT 'Acceso denegado';
+    END IF;
+END $$
+
+DELIMITER ;
+            </pre>
+            <p style="color: #d1d1d1;">Aquí, verificamos si la edad de una persona es mayor o igual a 18. Si cumple con este requisito, se le permite el acceso, de lo contrario, se le niega el acceso.</p>
+
+            <!-- Imagen del Ejemplo 2 -->
+            <div style="text-align: center;">
+             
+            </div>
+
+            <!-- Ejemplo 3 -->
+            <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 3: Determinar si un número es par o impar
+DELIMITER $$
+
+CREATE PROCEDURE VerificarParImpar(numero INT)
+BEGIN
+    IF numero % 2 = 0 THEN
+        SELECT 'El número es par';
+    ELSE
+        SELECT 'El número es impar';
+    END IF;
+END $$
+
+DELIMITER ;
+            </pre>
+            <p style="color: #d1d1d1;">Este ejemplo muestra cómo verificar si un número dado es par o impar utilizando el operador módulo (%).</p>
+            
+            <!-- Imagen del Ejemplo 3 -->
+            <div style="text-align: center;">
+               
+            </div>
+
+            <!-- Ejemplo 4 -->
+            <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 4: Validar si un usuario está activo
+DELIMITER $$
+
+CREATE PROCEDURE ValidarUsuario(usuario INT)
+BEGIN
+    IF usuario = 1 THEN
+        SELECT 'El usuario está activo';
+    ELSE
+        SELECT 'El usuario no está activo';
+    END IF;
+END $$
+
+DELIMITER ;
+            </pre>
+            <p style="color: #d1d1d1;">En este ejemplo se valida si un usuario está activo en el sistema, según su identificador (1 para activo, otros valores para no activo).</p>
+
+            <!-- Imagen del Ejemplo 4 -->
+            <div style="text-align: center;">
+               
+            </div>
+
+            <!-- Ejemplo 5 -->
+            <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 5: Asignar un mensaje según el día de la semana
+DELIMITER $$
+
+CREATE PROCEDURE MensajeDiaSemana(dia INT)
+BEGIN
+    IF dia = 1 THEN
+        SELECT 'Hoy es lunes';
+    ELSEIF dia = 2 THEN
+        SELECT 'Hoy es martes';
+    ELSE
+        SELECT 'Hoy es otro día';
+    END IF;
+END $$
+
+DELIMITER ;
+            </pre>
+            <p style="color: #d1d1d1;">Este ejemplo muestra cómo usar una serie de <code>IF ELSEIF</code> para asignar un mensaje diferente dependiendo del día de la semana.</p>
+
+            <!-- Imagen del Ejemplo 5 -->
+            <div style="text-align: center;">
+               
+            </div>
+        </article>
+
+        <!-- REPEAT -->
+        <article style="background-color: #444444; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+            <h3 style="font-size: 1.6rem; color: #ffffff;">Bucles REPEAT</h3>
+            <p style="font-size: 1.1rem; color: #d1d1d1;">El bucle <code>REPEAT</code> ejecuta un bloque de código repetidamente hasta que se cumpla una condición.</p>
+
+            <!-- Ejemplo 1 -->
+            <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 1: Contador con REPEAT
+DELIMITER $$
+
+CREATE PROCEDURE ContadorRepetido()
+BEGIN
+    DECLARE contador INT DEFAULT 1;
+    
+    REPEAT
+        SELECT contador;
+        SET contador = contador + 1;
+    UNTIL contador > 10
+    END REPEAT;
+END $$
+
+DELIMITER ;
+            </pre>
+            <p style="color: #d1d1d1;">Este ejemplo cuenta de 1 a 10 utilizando el bucle <code>REPEAT</code>.</p>
+            
+            <!-- Imagen del Ejemplo 1 -->
+            <div style="text-align: center;">
+                
+            </div>
+
+            <!-- Ejemplo 2 -->
+            <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 2: Acumulación de total con REPEAT
+DELIMITER $$
+
+CREATE PROCEDURE AcumulacionTotal()
+BEGIN
+    DECLARE total INT DEFAULT 0;
+    DECLARE cantidad INT DEFAULT 10;
+    
+    REPEAT
+        SET total = total + cantidad;
+        SET cantidad = cantidad - 1;
+    UNTIL cantidad = 0
+    END REPEAT;
+    
+    SELECT total;
+END $$
+
+DELIMITER ;
+            </pre>
+            <p style="color: #d1d1d1;">Aquí usamos REPEAT para acumular el valor de <code>cantidad</code> en <code>total</code>, decrementando <code>cantidad</code> en cada iteración.</p>
+            
+            <!-- Imagen del Ejemplo 2 -->
+            <div style="text-align: center;">
+                
+            </div>
+
+            <!-- Ejemplo 3 -->
+            <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 3: Bucle REPEAT con condición al final
+DELIMITER $$
+
+CREATE PROCEDURE BucleHasta10()
+BEGIN
+    DECLARE contador INT DEFAULT 1;
+    
+    REPEAT
+        SELECT contador;
+        SET contador = contador + 1;
+    UNTIL contador > 10
+    END REPEAT;
+END $$
+
+DELIMITER ;
+            </pre>
+            <p style="color: #d1d1d1;">Este ejemplo muestra cómo imprimir números del 1 al 10 utilizando el bucle REPEAT, donde la condición se verifica después de cada iteración.</p>
+            
+            <!-- Imagen del Ejemplo 3 -->
+            <div style="text-align: center;">
+               
+            </div>
+
+            <!-- Ejemplo 4 -->
+            <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 4: Repetir hasta encontrar un valor específico
+DELIMITER $$
+
+CREATE PROCEDURE BuscarValor()
+BEGIN
+    DECLARE encontrado BOOLEAN DEFAULT FALSE;
+    DECLARE valor INT DEFAULT 3;
+    
+    REPEAT
+        IF valor = 3 THEN
+            SET encontrado = TRUE;
+        ELSE
+            SET valor = valor + 1;
+        END IF;
+    UNTIL encontrado = TRUE
+    END REPEAT;
+    
+    SELECT 'Valor encontrado: ', valor;
+END $$
+
+DELIMITER ;
+            </pre>
+            <p style="color: #d1d1d1;">Este ejemplo demuestra cómo usar REPEAT para seguir buscando un valor específico hasta encontrarlo.</p>
+            
+            <!-- Imagen del Ejemplo 4 -->
+            <div style="text-align: center;">
+               
+            </div>
+
+            <!-- Ejemplo 5 -->
+            <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 5: Contar números positivos con REPEAT
+DELIMITER $$
+
+CREATE PROCEDURE ContarPositivos()
+BEGIN
+    DECLARE numero INT DEFAULT -5;
+    
+    REPEAT
+        SET numero = numero + 1;
+        SELECT numero;
+    UNTIL numero >= 5
+    END REPEAT;
+END $$
+
+DELIMITER ;
+            </pre>
+            <p style="color: #d1d1d1;">Este ejemplo muestra cómo contar de -5 hasta 5 utilizando REPEAT.</p>
+            
+            <!-- Imagen del Ejemplo 5 -->
+            <div style="text-align: center;">
+               
+            </div>
+        </article>
+
+        <!-- Loop -->
+        <article style="background-color: #444444; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+            <h3 style="font-size: 1.6rem; color: #ffffff;">Bucles LOOP</h3>
+            <p style="font-size: 1.1rem; color: #d1d1d1;">El bucle <code>LOOP</code> ejecuta un bloque de código de forma indefinida, hasta que se alcanza una condición de salida utilizando <code>LEAVE</code>.</p>
+
+            <!-- Ejemplo 1 -->
+            <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 1: Bucle LOOP para contar hasta 10
+DELIMITER $$
+
+CREATE PROCEDURE ContarHasta10Loop()
+BEGIN
+    DECLARE contador INT DEFAULT 1;
+    
+    LOOP
+        SELECT contador;
+        SET contador = contador + 1;
+        IF contador > 10 THEN
+            LEAVE;
+        END IF;
+    END LOOP;
+END $$
+
+DELIMITER ;
+            </pre>
+            <p style="color: #d1d1d1;">Este ejemplo utiliza el bucle <code>LOOP</code> para contar del 1 al 10 y luego salir del bucle cuando el contador alcanza 10.</p>
+
+            <!-- Imagen del Ejemplo 1 -->
+            <div style="text-align: center;">
+               
+            </div>
+
+            <!-- Ejemplo 2 -->
+            <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 2: Bucle LOOP con condiciones de búsqueda
+DELIMITER $$
+
+CREATE PROCEDURE BuscarNumero()
+BEGIN
+    DECLARE numero INT DEFAULT 1;
+    
+    LOOP
+        IF numero = 5 THEN
+            SELECT 'Número encontrado: ', numero;
+            LEAVE;
+        END IF;
+        SET numero = numero + 1;
+    END LOOP;
+END $$
+
+DELIMITER ;
+            </pre>
+            <p style="color: #d1d1d1;">En este ejemplo, el bucle <code>LOOP</code> busca el número 5 y sale del bucle cuando lo encuentra.</p>
+
+            <!-- Imagen del Ejemplo 2 -->
+            <div style="text-align: center;">
+                
+            </div>
+
+            <!-- Ejemplo 3 -->
+            <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 3: Bucle LOOP para sumar números
+DELIMITER $$
+
+CREATE PROCEDURE SumarNumeros()
+BEGIN
+    DECLARE suma INT DEFAULT 0;
+    DECLARE numero INT DEFAULT 1;
+    
+    LOOP
+        SET suma = suma + numero;
+        SET numero = numero + 1;
+        IF numero > 5 THEN
+            LEAVE;
+        END IF;
+    END LOOP;
+    
+    SELECT suma;
+END $$
+
+DELIMITER ;
+            </pre>
+            <p style="color: #d1d1d1;">Este ejemplo muestra cómo usar un bucle <code>LOOP</code> para sumar los números del 1 al 5.</p>
+            
+            <!-- Imagen del Ejemplo 3 -->
+            <div style="text-align: center;">
+               
+            </div>
+
+            <!-- Ejemplo 4 -->
+            <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 4: Bucle LOOP con condición de parada
+DELIMITER $$
+
+CREATE PROCEDURE SumarHastaFin()
+BEGIN
+    DECLARE suma INT DEFAULT 0;
+    DECLARE fin INT DEFAULT 10;
+    
+    LOOP
+        SET suma = suma + fin;
+        SET fin = fin - 1;
+        IF fin = 0 THEN
+            LEAVE;
+        END IF;
+    END LOOP;
+    
+    SELECT suma;
+END $$
+
+DELIMITER ;
+            </pre>
+            <p style="color: #d1d1d1;">Este ejemplo muestra cómo restar valores de una variable <code>fin</code> hasta llegar a 0, acumulando la suma en cada paso.</p>
+
+            <!-- Imagen del Ejemplo 4 -->
+            <div style="text-align: center;">
+                
+            </div>
+
+            <!-- Ejemplo 5 -->
+            <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 5: Generación de secuencia con LOOP
+DELIMITER $$
+
+CREATE PROCEDURE SecuenciaLoop()
+BEGIN
+    DECLARE i INT DEFAULT 1;
+    
+    LOOP
+        SELECT i;
+        SET i = i + 1;
+        IF i > 5 THEN
+            LEAVE;
+        END IF;
+    END LOOP;
+END $$
+
+DELIMITER ;
+            </pre>
+            <p style="color: #d1d1d1;">Este ejemplo genera una secuencia de números del 1 al 5 utilizando un bucle <code>LOOP</code>.</p>
+
+            <!-- Imagen del Ejemplo 5 -->
+            <div style="text-align: center;">
+               
+            </div>
+        </article>
+    </section>
+</body>
+</html>
+<!-- WHILE -->
+<article style="background-color: #444444; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+    <h3 style="font-size: 1.6rem; color: #ffffff;">Bucles WHILE</h3>
+    <p style="font-size: 1.1rem; color: #d1d1d1;">El bucle <code>WHILE</code> ejecuta un bloque de código mientras se cumpla una condición. Es útil cuando se desconoce cuántas veces se debe iterar.</p>
+
+    <!-- Ejemplo 1 -->
+    <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 1: Imprimir números del 1 al 5 con WHILE
+DELIMITER $$
+
+CREATE PROCEDURE ImprimirHasta5()
+BEGIN
+    DECLARE contador INT DEFAULT 1;
+    
+    WHILE contador <= 5 DO
+        SELECT contador;
+        SET contador = contador + 1;
+    END WHILE;
+END $$
+
+DELIMITER ;
+    </pre>
+    <p style="color: #d1d1d1;">Este ejemplo muestra cómo usar un bucle <code>WHILE</code> para imprimir los números del 1 al 5.</p>
+
+    <!-- Imagen del Ejemplo 1 -->
+    <div style="text-align: center;">
+       
+    </div>
+
+    <!-- Ejemplo 2 -->
+    <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 2: Sumar números del 1 al 10 con WHILE
+DELIMITER $$
+
+CREATE PROCEDURE SumarHasta10()
+BEGIN
+    DECLARE suma INT DEFAULT 0;
+    DECLARE contador INT DEFAULT 1;
+    
+    WHILE contador <= 10 DO
+        SET suma = suma + contador;
+        SET contador = contador + 1;
+    END WHILE;
+    
+    SELECT suma;
+END $$
+
+DELIMITER ;
+    </pre>
+    <p style="color: #d1d1d1;">Este ejemplo suma los números del 1 al 10 utilizando un bucle <code>WHILE</code> y luego muestra el resultado.</p>
+
+    <!-- Imagen del Ejemplo 2 -->
+    <div style="text-align: center;">
+       
+    </div>
+
+    <!-- Ejemplo 3 -->
+    <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 3: Encontrar el primer número mayor a 10 con WHILE
+DELIMITER $$
+
+CREATE PROCEDURE EncontrarMayor()
+BEGIN
+    DECLARE numero INT DEFAULT 1;
+    
+    WHILE numero <= 10 DO
+        SET numero = numero + 1;
+    END WHILE;
+    
+    SELECT 'El primer número mayor a 10 es: ', numero;
+END $$
+
+DELIMITER ;
+    </pre>
+    <p style="color: #d1d1d1;">Este ejemplo muestra cómo encontrar el primer número mayor a 10 utilizando el bucle <code>WHILE</code>.</p>
+
+    <!-- Imagen del Ejemplo 3 -->
+    <div style="text-align: center;">
+       
+    </div>
+
+    <!-- Ejemplo 4 -->
+    <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 4: Decrementar hasta llegar a 0 con WHILE
+DELIMITER $$
+
+CREATE PROCEDURE ContarRegresivo()
+BEGIN
+    DECLARE contador INT DEFAULT 5;
+    
+    WHILE contador >= 0 DO
+        SELECT contador;
+        SET contador = contador - 1;
+    END WHILE;
+END $$
+
+DELIMITER ;
+    </pre>
+    <p style="color: #d1d1d1;">Este ejemplo muestra cómo realizar un conteo regresivo desde 5 hasta 0 utilizando el bucle <code>WHILE</code>.</p>
+
+    <!-- Imagen del Ejemplo 4 -->
+    <div style="text-align: center;">
+       
+    </div>
+
+    <!-- Ejemplo 5 -->
+    <pre style="background-color: #2c3e50; color: white; padding: 15px; border-radius: 8px; font-size: 1rem; font-family: 'Courier New', Courier, monospace;">
+-- Ejemplo 5: Contar números positivos con WHILE
+DELIMITER $$
+
+CREATE PROCEDURE ContarPositivos()
+BEGIN
+    DECLARE numero INT DEFAULT -3;
+    
+    WHILE numero < 3 DO
+        SET numero = numero + 1;
+        SELECT numero;
+    END WHILE;
+END $$
+
+DELIMITER ;
+    </pre>
+    <p style="color: #d1d1d1;">Este ejemplo utiliza un bucle <code>WHILE</code> para contar de -3 hasta 3 e imprimir cada valor.</p>
+
+    <!-- Imagen del Ejemplo 5 -->
+    <div style="text-align: center;">
+       
+    </div>
+</article>
+<!-- Fin de la página con el botón de redirección -->
+<footer style="background-color: #2c3e50; padding: 20px; text-align: center; color: white;">
+    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">¿Listo para comenzar con MySQL?</h4>
+    <p style="font-size: 1.1rem;">Haz clic en el siguiente botón para instalar MySQL y empezar a programar tus consultas.</p>
+    <a href="https://dev.mysql.com/downloads/installer/" target="_blank" style="text-decoration: none;">
+        <button style="background-color: #ff6f61; color: white; font-size: 1.2rem; padding: 15px 30px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s;">
+            Descargar e Instalar MySQL
+        </button>
+    </a>
+</footer>
+<!-- Presentación profesional -->
+<section style="background-color: #f4f4f4; padding: 30px; text-align: center; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-top: 50px;">
+    <h2 style="font-size: 2rem; color: #333;">Presentado por:</h2>
+    <h3 style="font-size: 1.6rem; color: #2c3e50;">Nicolás Quiroz Gómez</h3>
+    <p style="font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto;">
+        Soy un apasionado programador . Mi objetivo es compartir conocimientos útiles y proporcionar soluciones efectivas a través de la tecnología. ¡Gracias por visitar mi blog!
+    </p>
+</section>
+
+<!-- Fin de la página con el botón de redirección -->
+<footer style="background-color: #2c3e50; padding: 20px; text-align: center; color: white;">
+    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">¿Listo para comenzar con MySQL?</h4>
+    <p style=
